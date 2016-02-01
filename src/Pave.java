@@ -27,5 +27,3 @@ public class Pave {
 		return d;
 	}
 }
-
-// nicolas.rousset@isep.fr
