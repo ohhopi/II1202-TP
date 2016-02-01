@@ -11,7 +11,7 @@ public class SecondDegre {
 		b = scan.nextDouble();
 		System.out.println("Veuillez saisir la valeur de c (aX^2+bX+c) : ");
 		c = scan.nextDouble();
-		double [] solution = solve(a, b, c);
+		double [] solution = solveSecondDegre(a, b, c);
 		if (solution != null){
 			System.out.println("Soltion(s) : "+ solution[0] + " | " + solution[1]);
 		}else{
@@ -19,7 +19,7 @@ public class SecondDegre {
 		}
 	}
 
-	public static double [] solve(double a, double b, double c) {
+	public static double [] solveSecondDegre(double a, double b, double c) {
 		double discriminant = (b*b) - (4*a*c);
 		double [] sortie;
 		if( a != 0.0 && discriminant > 0) {
