@@ -22,7 +22,7 @@ public class QuatriemeExercice {
 	}
 	public static void main(String[] args){
 		scan = new Scanner(System.in);
-		System.out.println("Afficher la table de multiplication de : ");
+		System.out.println("Afficher la table de multiplication jusqu'a quel multiple : ");
 		int a = scan.nextInt();
 		mulGrid(a);
 	}
