@@ -1,0 +1,83 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class TP3 {
+	private static Scanner scan;
+	
+	public static int [] saisie1D() {
+			
+		scan = new Scanner(System.in);
+		System.out.println("Nombre d'elements ? ");
+		int lignes = scan.nextInt();
+		
+		int [] tab = new int[lignes];
+		
+		for (int i = 0; i < lignes; i++){
+				System.out.println( (i+1) + "e valeur ? ");
+				tab[i] = scan.nextInt();
+			}
+		return tab;
+		}
+
+	public static int [][] saisie2D() {
+		
+		scan = new Scanner(System.in);
+		System.out.println("Nombre de lignes ? ");
+		int lignes = scan.nextInt();
+		System.out.println("Nombre de colones ? ");
+		int colones = scan.nextInt();
+		
+		int [][] tab = new int[lignes][colones];
+		
+		for (int i = 0; i < lignes; i++){
+			for (int j = 0; j < colones; j++ ){
+				System.out.println( "Valeur de ["+ i +","+ j +"] ? ");
+				tab[i][j] = scan.nextInt();
+				}
+			}
+		return tab;
+		}
+	
+	
+	public static int meanIntTab(int tab []){
+		int moy = 0;
+		for (int i = 0; i < tab.length; i++){
+					moy += tab[i];
+			}
+		moy = moy/tab.length;
+		for (int s =0; s < tab.length; s++){
+			if (tab[s] == moy){
+				System.out.println(s);
+				return  moy;
+			}
+		}
+		return  moy;
+	}
+	
+	public static int [] partitionTab(int tab []){
+		
+		int debut = 0, fin = tab.length -1;
+		int moyenne = meanIntTab(tab);
+		
+		while(debut < fin) {
+			while(tab[debut] < moyenne) debut++;
+			while(tab[fin] >= moyenne) fin--;
+			
+			if(tab[debut] >= moyenne) {
+				int tmp = tab[debut];
+				tab[debut] = tab[fin];
+				tab[fin] = tmp;
+			}
+		}
+		
+	}
+	
+	public static void main(String[] args){
+//		int [] tab = saisie2D();
+//		System.out.println(Arrays.deepToString(tab));
+		int [] tab = saisie1D();
+		System.out.println(Arrays.toString(tab));
+		
+		System.out.println(Arrays.toString(meanIntTab(tab)));
+	}
+}
