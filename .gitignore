@@ -1,7 +1,6 @@
-/.classpath/**
-/.recommenders/**
-.metadata
-/.metadata/**
+.classpath/
+.recommenders/
+.metadata/
 .gitignore
 .classpath
 .project
