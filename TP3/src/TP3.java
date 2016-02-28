@@ -80,28 +80,36 @@ public class TP3 {
 		}
 	}
 	
-	public static int partition(int [] tab, int debut, int fin){
-		int index_pivot = tab[debut];
-		int d = debut+1;
-		int f = fin;
-		while (d < f){
-			//Détermine la valeur à permuter
-			while(d < f && tab[f] >= index_pivot) f--;
-			while(d < f && tab[d] <= index_pivot) d++;
-			
-			//Effectue la permutation
-			int temp = tab[d];
-	        tab[d]= tab[f];
-	        tab[f] = temp;
-	        System.out.println(Arrays.toString(tab));
-	        
-		}
-        //Renvoi du nouveau pivot pour l'appel récursif de quicksort
-        if (tab[d] > index_pivot) d--;
-        tab[debut] = tab[d];
-        tab[d] = index_pivot;
-        return d;
+	public static int partition(int tab[], int gauche, int droite)
+	{
+	      int i = gauche, j = droite;
+	      int tmp;
+	      int pivot = tab[(gauche + droite) / 2];
+	     
+	      while (i <= j) {
+	            while (tab[i] < pivot)
+	                  i++;
+	            while (tab[j] > pivot)
+	                  j--;
+	            if (i <= j) {
+	                  tmp = tab[i];
+	                  tab[i] = tab[j];
+	                  tab[j] = tmp;
+	                  i++;
+	                  j--;
+	            }
+	      };
+	     
+	      return i;
 	}
+	 
+	public static void quickSort(int tab[], int gauche, int droite) {
+	      int index = partition(tab, gauche, droite);
+	      if (gauche < index - 1)
+	            quickSort(tab, gauche, index - 1);
+	      if (index < droite)
+	            quickSort(tab, index, droite);
+	}	
 	
 	public static int search(int [] t, int v){
 		for (int i = 0; i < t.length; i++){
@@ -111,25 +119,49 @@ public class TP3 {
 		}
 		return -1;
 	}
+	
 	/* Itérations : 
 	 * 	- si v est au début ? 1 itération de la boucle for.
 	 * 	- si v est à la fin ? autant d'itérations qu'il y a d'éléments dans le tableau.
 	 *  - en moyenne ? si la taille du tableau est n, le nombre d'iterations en moyenne est n/2.
 	 */
-
+	
+	public static int dicho(int[] tab, int val, int gauche, int droite) {
+	      if (gauche > droite) //Si le rayon de recherche est mal saisi
+	            return -1;
+	      int milieu = (gauche + droite) / 2; //Indice du mileu
+	      if (tab[milieu] == val) // Quand on trouve la valeur
+	            return milieu;
+	      else if (tab[milieu] > val) // Quand on ne tombe pas sur la valeur, on lance une récursion de dicho sur la bonne moitiée
+	            return dicho(tab, val, gauche, milieu - 1);
+	      else
+	            return dicho(tab, val, milieu + 1, droite);           
+	}
+/*
+ * Au pire ln(tab.lenth = n) itérations.
+ * Car la taille de la partie recherchée est divisée par deux à chaque itération et l'algorithme s'arrête quand il n'y a plus d'éléments soit :
+ * 2/(2^itérations)>0 soit 
+ * itérations <= ln(n) 
+ * 
+ * Donc on est en O(ln(n))
+ */
 	
 	public static void main(String[] args){
 //		int [] tab = saisie2D();
 //		System.out.println(Arrays.deepToString(tab));
-		int [] tab = saisie1D();
-		System.out.println(Arrays.toString(tab));
-//		System.out.println("Moyenne : " + meanIntTab(tab));
-//		partitionTab(tab);
+//		int [] tab = saisie1D();
+		int [] tab2 = saisie1D();
+//		quickSort(tab2, 0, tab2.length-1);
 //		System.out.println(Arrays.toString(tab));
+//		System.out.println("Moyenne : " + meanIntTab(tab2));
+//		partitionTab(tab2);
+		System.out.println(Arrays.toString(tab2));
 		
-//		quicksort(tab, 0, tab.length-1);
-//		System.out.println(Arrays.toString(tab));
+//		System.out.println(search(tab, 3));
 		
-		System.out.println(search(tab, 3));
+		System.out.println(dicho(tab2, 5, 0, tab2.length-1));
+		System.out.println(dicho(tab2, 6, 0, tab2.length-1));
+		System.out.println(dicho(tab2, 25, 0, tab2.length-1));
 	}
 }
+	

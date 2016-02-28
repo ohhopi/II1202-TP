@@ -1,10 +1,11 @@
 import java.util.Scanner;
 
 public class SecondDegre {
+	private static Scanner scan;
+
 	public static void main(String [] args) {
-		Scanner scan = new Scanner(System.in);
+		scan = new Scanner(System.in);
 		double a,b,c;
-		String sortie;
 		System.out.println("Veuillez saisir la valeur de a (aX^2+bX+c) : ");
 		a = scan.nextDouble();
 		System.out.println("Veuillez saisir la valeur de b (aX^2+bX+c) : ");
