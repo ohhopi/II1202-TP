@@ -258,3 +258,12 @@ java.lang.NullPointerException
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+
+!ENTRY org.eclipse.core.resources 2 2 2016-02-29 10:47:18.744
+!MESSAGE Save operation warnings.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2016-02-29 10:47:18.744
+!MESSAGE The project description file (.project) for 'TP2' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2016-02-29 10:47:18.744
+!MESSAGE The project description file (.project) for 'TP3' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2016-02-29 10:47:18.744
+!MESSAGE The project description file (.project) for 'TP4' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
