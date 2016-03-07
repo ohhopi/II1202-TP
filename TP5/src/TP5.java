@@ -3,6 +3,14 @@ import java.util.Scanner;
 
 public class TP5 {
 	
+	/*
+	 * @author : Tristan Muratore
+	 * Classe qui regroupe toutes les fonctions pour les parties I et II du TP5 du cours [II.1202] à l'ISEP
+	 * On a donc des fonctions pour : 
+	 * 	- Tester si une chaîne est un palindrome et renvoyer en console la réponse : palindrome(String mot)
+	 *  - Lister les n nombres premiers avec le crible d'Erathostene (récursif ou non) : premiers(int n)
+	 */
+	
 	public static boolean isPalindrome(String phrase){
 		if((phrase.length() == 2 && (phrase.charAt(0) == phrase.charAt(1))) || phrase.length() == 1) {
 			//Dans le cas élementaire on renvoie le booleen true si c'est vérifié
@@ -17,9 +25,15 @@ public class TP5 {
 	}
 	
 	static public void palindrome(Scanner scan) {
+		// On Prends la saisie de l'utilisateur
 		String mot = scan.nextLine();
+		// On enlève tous les espaces vides
 		mot = mot.replaceAll("\\s+","");
-		boolean palin = isPalindrome(mot.toUpperCase());
+		//On passe tous les caractères à des majuscules pour pouvoir comparer avec les opérateurs classiques
+		mot = mot.toUpperCase();
+		//On teste s'il est un palindrome en passant la chain
+		boolean palin = isPalindrome(mot);
+		//La sortie s'affiche en fonction de la nature de la chaîne testée
 		if (palin) {
 			System.out.println("C'est un palindrome.");
 		}else{
@@ -41,10 +55,10 @@ public class TP5 {
 	public static void erathosteneR(boolean [] crible) {
 		// Fonction d'initialisation du crible d'erathotene récursif
 		Arrays.fill(crible,true);
-		erathosteneRec(crible, 2);
+		erathosteneR_(crible, 2);
 	}
 
-	public static void erathosteneRec(boolean[] crible, int i) {
+	private static void erathosteneR_(boolean[] crible, int i) {
 		if(i >= crible.length)
 			return;
 		
@@ -52,7 +66,7 @@ public class TP5 {
 			i++;
 		
 		eliminer(crible, i);
-		erathosteneRec(crible, i+1);
+		erathosteneR_(crible, i+1);
 	}
 
 	private static void eliminer(boolean[] crible, int i) {
