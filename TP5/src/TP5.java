@@ -41,6 +41,7 @@ public class TP5 {
 		}
 	}
 	
+	//Version non récursive d'erathostene (non utilisé)
 	public static void erathostene(boolean [] crible) {
 		Arrays.fill(crible, true);
 		
