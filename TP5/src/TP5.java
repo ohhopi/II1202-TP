@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class main {
+public class TP5 {
 	
 	public static boolean isPalindrome(String phrase){
 		if((phrase.length() == 2 && (phrase.charAt(0) == phrase.charAt(1))) || phrase.length() == 1) {
@@ -51,11 +51,11 @@ public class main {
 		while(!crible[i] && i < crible.length/2)
 			i++;
 		
-		elimininate(crible, i);
+		eliminer(crible, i);
 		erathosteneRec(crible, i+1);
 	}
 
-	private static void elimininate(boolean[] crible, int i) {
+	private static void eliminer(boolean[] crible, int i) {
 		for(int j =2; (j * i) < crible.length; j++)
 			crible[i*j] = false;
 		
