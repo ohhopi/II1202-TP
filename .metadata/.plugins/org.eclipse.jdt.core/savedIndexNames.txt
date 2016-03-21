@@ -1,6 +1,0 @@
-INDEX VERSION 1.127+/mnt/monster/home/eleves/2018/tmuratore/II1202-TP/.metadata/.plugins/org.eclipse.jdt.core
-3349229269.index
-1588100975.index
-1506130806.index
-3234654924.index
-3083590234.index
