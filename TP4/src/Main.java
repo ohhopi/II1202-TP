@@ -7,15 +7,7 @@ public class Main {
 
 			   StdDraw.setPenColor(StdDraw.RED);
 			   StdDraw.filledCircle(b2.getPosX(), b2.getPosY(), b2.getRayon());
-/*			   float newVX = (b.vX * (b.masse - b2.masse) + (2 * b2.masse * b2.vX))  / (b.masse + b2.masse);
-			   float newVY = (b.vY * (b.masse - b2.masse) + (2 * b2.masse * b2.vY))  / (b.masse + b2.masse);
-			   float newVX2 = (b2.vX * (b2.masse - b.masse) + (2 * b.masse * b.vX))  / (b2.masse + b.masse);
-			   float newVY2 = (b2.vY * (b2.masse - b.masse) + (2 * b.masse * b.vY))  / (b2.masse + b.masse);
-			   b.vX = newVX;
-			   b.vY = newVY;
-			   b2.vX = newVX2;
-			   b2.vY = newVY2;   
-*/
+
 		   }else{
 			   StdDraw.setPenColor(StdDraw.GREEN);
 			   StdDraw.filledCircle(b2.getPosX(), b2.getPosY(), b2.getRayon());
